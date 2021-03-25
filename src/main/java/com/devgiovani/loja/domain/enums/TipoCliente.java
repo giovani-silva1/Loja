@@ -2,14 +2,11 @@ package com.devgiovani.loja.domain.enums;
 
 public enum TipoCliente {
 
-	PESSOAFISICA(1, "Pessoa Física"), PESSOAJURÍDICA(2, "Pessoa Juridica");
+	PESSOAFISICA(1, "Pessoa Física"), 
+	PESSOAJURÍDICA(2, "Pessoa Juridica");
 
 	private int cod;
 	private String nome;
-
-	private TipoCliente() {
-
-	}
 
 	private TipoCliente(int cod, String nomeTipo) {
 		this.cod = cod;
@@ -31,7 +28,7 @@ public enum TipoCliente {
 		}
 
 		for (TipoCliente x : TipoCliente.values()) {
-			if (cod.equals(x)) {
+			if (cod.equals(x.getCod())) {
 				return x;
 			}
 		}
