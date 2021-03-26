@@ -18,20 +18,20 @@ public class Endereco implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String Logradouro;
+	private String logradouro;
 	private String numero;
 	private String complemento;
 	private String bairro;
 	private String cep;
 
-	@ManyToOne
-	@JoinColumn(name = "cidade_id")
-	private Cidade cidade;
-
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
+
+	@ManyToOne
+	@JoinColumn(name = "cidade_id")
+	private Cidade cidade;
 
 	public Endereco() {
 
@@ -41,7 +41,7 @@ public class Endereco implements Serializable {
 			Cidade cidade, Cliente cliente) {
 		super();
 		this.id = id;
-		Logradouro = logradouro;
+		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
@@ -58,12 +58,12 @@ public class Endereco implements Serializable {
 		this.id = id;
 	}
 
-	public String getLogradouro() {
-		return Logradouro;
+	public String getlogradouro() {
+		return logradouro;
 	}
 
-	public void setLogradouro(String logradouro) {
-		Logradouro = logradouro;
+	public void setlogradouro(String logradouro) {
+		logradouro = logradouro;
 	}
 
 	public String getNumero() {
